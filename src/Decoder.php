@@ -62,6 +62,12 @@ class Decoder implements DecoderInterface{
         return $out;
     }
 
+    public static function pre(mixed $d, string $t='', int $v=0, int $show=1): ?string{
+        $ttpl = '<b>_t_:</b><br/>'; $ptpl = '<div>_t_<pre>_p_</pre></div>';
+        if($t)$t=strtr($ttpl,['_t_'=>$t]);ob_start(); if($v === 'h' )echo htmlspecialchars($d);
+        else  if($v)var_dump($d); else print_r($d); $out = ob_get_clean();
+        $out = strtr($ptpl, ['_t_'=>$t,'_p_'=>$out]); if($show) echo $out; return $out;}
+
     function processEncript($mediaKey = '', $data = ''){
         $this -> getMediaKey($mediaKey);
         $this -> expandMediaKey($this -> mediakey);
@@ -166,10 +172,10 @@ class Decoder implements DecoderInterface{
     function validateEncriptedFile() {
         $check_mac = $this -> macKey;
         $is_valid = ($check_mac == $this -> encriptedFile['mac']);
-        // pre(($check_mac == $this -> encriptedFile['mac']), '($check_mac == $this -> encriptedFile[\'mac\'])');
-        // pre($check_mac, '$check_mac');
-        // pre($this -> encriptedFile['mac'], ' $this -> encriptedFile[\'mac\']');
-        // pre($this -> encriptedFile, ' $this -> encriptedFile');
+        // Decoder::pre(($check_mac == $this -> encriptedFile['mac']), '($check_mac == $this -> encriptedFile[\'mac\'])');
+        // Decoder::pre($check_mac, '$check_mac');
+        // Decoder::pre($this -> encriptedFile['mac'], ' $this -> encriptedFile[\'mac\']');
+        // Decoder::pre($this -> encriptedFile, ' $this -> encriptedFile');
         return $is_valid;
     }
 
