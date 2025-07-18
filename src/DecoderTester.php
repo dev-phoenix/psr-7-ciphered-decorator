@@ -32,7 +32,7 @@ class DecoderTester extends Decoder{
     public function __construct($src_in_dir = 'source',$src_out_dir = 'results') {
 
         // $this -> decript_alg = 'aes-128-cbc';
-        // Decoder::pre($this -> decript_alg, 'Used decript algoritm');
+        // H::pre($this -> decript_alg, 'Used decript algoritm');
 
         $src_dir_name = '/_src/i2crm-php-test-task-a0d44ecafc60/samples';
         $out_dir_name = '/_src/i2crm-php-test-task-a0d44ecafc60/results';
@@ -67,7 +67,7 @@ class DecoderTester extends Decoder{
         $media_types_info['AUDIO']      = 'WhatsApp Audio Keys';
         $media_types_info['DOCUMENT']   = 'WhatsApp Document Keys';
         $this -> media_types_info = $media_types_info;
-        // Decoder::pre($this -> media_types_info, '$this -> media_types_info');
+        // H::pre($this -> media_types_info, '$this -> media_types_info');
     }
     //*********************************************** */
 
@@ -227,8 +227,8 @@ class DecoderTester extends Decoder{
         if($out_name) $this -> outFileName = $out_name;
         else $this -> outFileName = $fname;
         $this -> initDirs($src_in_dir, $src_out_dir);
-        // Decoder::pre($this -> OUT_DIR, 'OUT_DIR');
-        // Decoder::pre($this -> OUT_DIR, 'OUT_DIR');
+        // H::pre($this -> OUT_DIR, 'OUT_DIR');
+        // H::pre($this -> OUT_DIR, 'OUT_DIR');
         if(!is_dir($this -> OUT_DIR)) mkdir($this -> OUT_DIR, $this -> new_dir_permissions, true);
         if(!is_writable($this -> OUT_DIR)) { throw new \Exception('Target dirictory is not writable.'); }
     }

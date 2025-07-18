@@ -32,7 +32,7 @@ $inStream = new Stream(fopen($out_dir.'/orig_data.txt', 'r')); // PSR-7 stream
 $decoder = new StreamDecoratorEncode($inStream, $mediaKey); // add decorator
 $encriptedresult = $decoder -> getContents();
 
-Decoder::pre($encriptedresult, 'encripted'); // output
+H::pre($encriptedresult, 'encripted'); // output
 
 // save intermediate data dump
 file_put_contents($out_dir.'/enc_data.txt', $encriptedresult);
@@ -42,7 +42,7 @@ $inStream = new Stream(fopen($out_dir.'/enc_data.txt', 'r')); // PSR-7 stream
 $decoder = new StreamDecoratorDecode($inStream, $mediaKey); // add decorator
 $originalresult = $decoder -> getContents();
 
-Decoder::pre($originalresult, 'decoded'); // output
+H::pre($originalresult, 'decoded'); // output
 ```
 
 Out:  
@@ -70,11 +70,11 @@ $fname_V = 'VIDEO';
 
 // Cipher test class specially for files
 $decoder = new DecoderTester($src_dir, $out_dir);
-Decoder::pre('DecoderTester created.');
+H::pre('DecoderTester created.');
 $size = $decoder -> processDecription($fname_I, $fname_I.'_4', $src_dir, $out_dir);
-Decoder::pre('DecoderTester decription complited.');
+H::pre('DecoderTester decription complited.');
 $size = $decoder -> processEncription($fname_I, $fname_I.'_4', $src_dir, $out_dir);
-Decoder::pre('DecoderTester encription complited.');
+H::pre('DecoderTester encription complited.');
 
 
 // compare encripted files, origin encripted and generated encripted
@@ -87,9 +87,9 @@ $hashe_2 = hash_file('sha256', $out_enc_fname);
 $mess_1 = sprintf('%s ', $fname_I.'' . '.encrypted hash');
 $mess_2 = sprintf('%s ', $fname_I.'_4' . '.encrypted hash');
 $mess_3 = sprintf('Compare %s and %s', $fname_I.'' . '.encrypted', $fname_I.'_4' . '.encrypted');
-Decoder::pre($hashe_1, $mess_1);
-Decoder::pre($hashe_2, $mess_2);
-Decoder::pre(($hashe_1 == $hashe_2)?'equal':'not equal',$mess_3);
+H::pre($hashe_1, $mess_1);
+H::pre($hashe_2, $mess_2);
+H::pre(($hashe_1 == $hashe_2)?'equal':'not equal',$mess_3);
 ```
 
 Out:  
@@ -114,19 +114,19 @@ $out_dir = $parent_dir . $out_dir_name;
 
 
 $decoder = new Decoder();
-Decoder::pre($data, sprintf('incoming data len( %s )',$decoder->strSize(strlen($data))));
+H::pre($data, sprintf('incoming data len( %s )',H::strSize(strlen($data))));
 $data = $decoder -> processEncript($mediaKey, $data);
-Decoder::pre($data, sprintf('encripted data len( %s )',$decoder->strSize(strlen($data))));
+H::pre($data, sprintf('encripted data len( %s )',H::strSize(strlen($data))));
 
 file_put_contents($out_dir.'/enc_f_data.txt', $data); // save cipher data
 $data_ = file_get_contents($out_dir.'/enc_f_data.txt'); // load cipher data
 
 $data = $decoder -> processDecript($mediaKey, $data_);
-Decoder::pre($data, sprintf('decripted data len( %s )',$decoder->strSize(strlen($data))));
+H::pre($data, sprintf('decripted data len( %s )',H::strSize(strlen($data))));
 
-Decoder::pre($data_, sprintf('encripted loaded data len( %s )',$decoder->strSize(strlen($data_))));
+H::pre($data_, sprintf('encripted loaded data len( %s )',H::strSize(strlen($data_))));
 $data = $decoder -> processDecript($mediaKey, $data_);
-Decoder::pre($data, sprintf('decripted loaded data len( %s )',$decoder->strSize(strlen($data))));
+H::pre($data, sprintf('decripted loaded data len( %s )',H::strSize(strlen($data))));
 ```
 
 Out:  

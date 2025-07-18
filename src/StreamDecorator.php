@@ -30,7 +30,7 @@ function pre(mixed $d, string $t='', int $v=0, int $show=1): ?string{
  * echo
  */
 function pred(any $d, string $t='', int $show=1): string {
-    return Decoder::pre($d,$t,1,$show);
+    return H::pre($d,$t,1,$show);
 }
 // ***************************
 
@@ -44,7 +44,7 @@ class StreamDecorator implements StreamInterface
     protected Decoder $decoder;
 
     public function __construct(StreamInterface $parent, string $key = ''){
-        // Decoder::pre($key, 'StreamDecorator $key');
+        // H::pre($key, 'StreamDecorator $key');
         // echo '<pre>';
         // debug_print_backtrace();
         $this->parent = $parent;
@@ -153,9 +153,9 @@ class StreamDecorator implements StreamInterface
      * @throws \RuntimeException on failure.
      */
     public function write($string): int { 
-        Decoder::pre($string, 'write');
+        H::pre($string, 'write');
         $out = $this->parent->write($string);
-        Decoder::pre($out, 'write out');
+        H::pre($out, 'write out');
         return $out;
         return $this->parent->write($string);}
 
@@ -177,9 +177,9 @@ class StreamDecorator implements StreamInterface
      * @throws \RuntimeException if an error occurs.
      */
     public function read($length): string {
-        Decoder::pre($length, 'read');
+        H::pre($length, 'read');
         $out = $this->parent->read($length);
-        Decoder::pre($out, 'read out');
+        H::pre($out, 'read out');
         return $out;
     }
 
@@ -207,7 +207,7 @@ class StreamDecorator implements StreamInterface
     public function getMetadata(?string $key = null) { return $this->parent->getMetadata($key);}
 
     // public function addStream($key = null){ 
-    //     Decoder::pre($key, 'addStream');
+    //     H::pre($key, 'addStream');
     //     return $this->parent->addStream($key);}
 
     // public __call(string $name, array $arguments): mixed
