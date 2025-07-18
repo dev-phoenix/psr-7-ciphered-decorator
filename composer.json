@@ -13,7 +13,7 @@
             "homepage": "https://github.com/dev-phoenix"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=8.2",
         "guzzlehttp/psr7": "3.0.x-dev"
