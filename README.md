@@ -16,7 +16,7 @@ require_once 'vendor/autoload.php';
 use GuzzleHttp\Psr7\Stream;
 use DevPhoenix\Psr7Decorator\StreamDecoratorDecode;
 use DevPhoenix\Psr7Decorator\StreamDecoratorEncode;
-use DevPhoenix\Psr7Decorator\pre;
+use DevPhoenix\Psr7Decorator\H;
 
 $out_dir_name = '/results'; // needs already be created
 $parent_dir = dirname(__FILE__);
@@ -53,7 +53,7 @@ Out:
 require_once 'vendor/autoload.php';
 
 use DevPhoenix\Psr7Decorator\DecoderTester;
-use DevPhoenix\Psr7Decorator\pre;
+use DevPhoenix\Psr7Decorator\H;
 
 // prepare sources dir parh
 $src_dir_name = '/samples';
@@ -102,7 +102,7 @@ Only cipher without psr7
 require_once 'vendor/autoload.php';
 
 use DevPhoenix\Psr7Decorator\Decoder;
-use DevPhoenix\Psr7Decorator\pre;
+use DevPhoenix\Psr7Decorator\H;
 
 $mediaKey = 'secret key';
 $data = 'secret data';

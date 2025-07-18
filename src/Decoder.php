@@ -39,6 +39,12 @@ class Decoder implements DecoderInterface{
     }
     //*********************************************** */
 
+    /**
+     * Encrcipt scenario
+     * @param string $mediaKey password key
+     * @param string $data origin data
+     * @return string cipher data
+     */
     function processEncript($mediaKey = '', $data = ''){
         $this -> getMediaKey($mediaKey);
         $this -> expandMediaKey($this -> mediakey);
@@ -47,6 +53,12 @@ class Decoder implements DecoderInterface{
         return $this -> criptedFileContent;
     }
 
+    /**
+     * Decrcipt scenario
+     * @param string $mediaKey password key
+     * @param string $data cipher data
+     * @return string origin data
+     */
     function processDecript($mediaKey = '', $data = ''){
         $this -> getMediaKey($mediaKey);
         $this -> expandMediaKey($this -> mediakey);
