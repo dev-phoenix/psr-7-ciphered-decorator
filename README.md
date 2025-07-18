@@ -11,6 +11,8 @@ composer require dev-phoenix/psr7-decorator
 
 ## Exemples:
 ```php
+require_once 'vendor/autoload.php';
+
 use GuzzleHttp\Psr7\Stream;
 use DevPhoenix\Psr7Decorator\StreamDecoratorDecode;
 use DevPhoenix\Psr7Decorator\StreamDecoratorEncode;
@@ -48,6 +50,8 @@ Out:
 
 ## Exemples with exemple files:
 ```php
+require_once 'vendor/autoload.php';
+
 use DevPhoenix\Psr7Decorator\DecoderTester;
 use DevPhoenix\Psr7Decorator\pre;
 
@@ -95,6 +99,8 @@ Out:
 ## Exemples with simple string:
 Only cipher without psr7
 ```php
+require_once 'vendor/autoload.php';
+
 use DevPhoenix\Psr7Decorator\Decoder;
 use DevPhoenix\Psr7Decorator\pre;
 

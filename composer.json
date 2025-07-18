@@ -15,6 +15,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": ">=8.2"
+        "php": ">=8.2",
+        "guzzlehttp/psr7": "3.0.x-dev"
     }
 }

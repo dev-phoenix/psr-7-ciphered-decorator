@@ -1,3 +1,5 @@
 
 composer.lock
 vendor/
+ts_psr_1.php
+test.txt
