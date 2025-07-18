@@ -4,7 +4,7 @@
 ## Required PHP v8.x
 Checked on PHP v8.2
 
-## Install (coming soon):
+## Install:
 ```sh
 composer require dev-phoenix/psr7-decorator
 ```
