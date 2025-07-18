@@ -1,0 +1,20 @@
+{
+    "name": "dev-phoenix/psr7-decorator",
+    "description": "psr7 cipher decorator",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "DevPhoenix\\Psr7Decorator\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "dev-phoenix",
+            "homepage": "https://github.com/dev-phoenix"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.2"
+    }
+}
